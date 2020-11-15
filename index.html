@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <title>Inputs</title>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <input type="text" class="state" placeholder="UF">
+        <input type="text" class="cpf" placeholder="CPF (xxx.xxx.xxx-xx)"> <!-- 161.323.540-26 -->
+        <input type="text" class="cnpj" placeholder="CNPJ (xx.xxx.xxx/xxxx-xx)"> <!-- 72.071.756/0001-32 -->
+        <input type="text" class="cpf_cnpj" placeholder="CPF/CNPJ">
+        <input type="text" class="phone" placeholder="Phone (xx) xxxx-xxxx">
+        <input type="text" class="mobile_phone" placeholder="Mobile Phone (xx) xxxxx-xxxx">
+        <input type="text" class="cep" placeholder="CEP (xxxxx-xxx)">
+
+        <script>
+            const stateInput = document.querySelector('input.state')
+            const cpfInput = document.querySelector('input.cpf')
+            const cnpjInput = document.querySelector('input.cnpj')
+            const cpfCnpjInput = document.querySelector('input.cpf_cnpj')
+            const phoneInput = document.querySelector('input.phone')
+            const mobilePhoneInput = document.querySelector('input.mobile_phone')
+            const cepInput = document.querySelector('input.cep')
+
+            // UF MASK
+            stateInput.addEventListener('input', function() {
+                let value = this.value
+                
+                if(value.length > 2)
+                    value = value.slice(0, -1)
+
+                value = value.replace(/\W/g, '')
+                value = value.replace(/\d/g, '')
+                value = value.replace(/[a-z]/g, '')
+
+                this.value = value
+            })
+
+            // CPF MASK
+            cpfInput.addEventListener('input', function() {
+                let value = this.value
+
+                value = value.replace(/\D/g, '')
+
+                if(value.length > 11)
+                    value = value.slice(0, -1)
+
+                value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                value = value.replace(/(\d{3})(\d)/, '$1-$2')
+
+                this.value = value
+            })
+
+            // CNPJ MASK
+            cnpjInput.addEventListener('input', function() {
+                let value = this.value
+
+                value = value.replace(/\D/g, '')
+
+                if(value.length > 14)
+                    value = value.slice(0, -1)
+                
+                value = value.replace(/(\d{2})(\d)/, '$1.$2')
+                value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                value = value.replace(/(\d{3})(\d)/, '$1/$2')
+                value = value.replace(/(\d{4})(\d)/, '$1-$2')
+
+                this.value = value
+            })
+
+            // CPF/CNPJ MASK
+            cpfCnpjInput.addEventListener('input', function() {
+                let value = this.value
+
+                value = value.replace(/\D/g, '')
+
+                if(value.length > 14)
+                    value = value.slice(0, -1)
+                
+                if(value.length <= 11) {
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                    value = value.replace(/(\d{3})(\d)/, '$1-$2')
+                } else {
+                    value = value.replace(/(\d{2})(\d)/, '$1.$2')
+                    value = value.replace(/(\d{3})(\d)/, '$1.$2')
+                    value = value.replace(/(\d{3})(\d)/, '$1/$2')
+                    value = value.replace(/(\d{4})(\d)/, '$1-$2')
+                }
+
+                this.value = value
+            })
+
+            // Phone MASK
+            phoneInput.addEventListener('input', function() {
+                let value = this.value
+
+                value = value.replace(/\D/g, '')
+
+                if(value.length > 10)
+                    value = value.slice(0, -1)
+                
+                value = value.replace(/(\d{2})(\d)/, '($1) $2')
+                value = value.replace(/(\d{4})(\d)/, '$1-$2')
+
+                this.value = value
+            })
+
+            // Mobile Phone MASK
+            mobilePhoneInput.addEventListener('input', function() {
+                let value = this.value
+
+                value = value.replace(/\D/g, '')
+
+                if(value.length > 11)
+                    value = value.slice(0, -1)
+                
+                value = value.replace(/(\d{2})(\d)/, '($1) $2')
+                value = value.replace(/(\d{5})(\d)/, '$1-$2')
+
+                this.value = value
+            })
+            
+            // CEP MASK
+            cepInput.addEventListener('input', function() {
+                let value = this.value
+
+                value = value.replace(/\D/g, '')
+
+                if(value.length > 8)
+                    value = value.slice(0, -1)
+                
+                value = value.replace(/(\d{5})(\d)/, '$1-$2')
+
+                this.value = value
+            })
+        </script>
+    </body>
+<html>
