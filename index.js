@@ -6,6 +6,7 @@ const cpfInput = document.querySelector('.cpf');
 const cnpjInput = document.querySelector('.cnpj');
 const cpf_cnpjInput = document.querySelector('.cpf_cnpj');
 const percentInput = document.querySelector('.percent');
+const currencyInput = document.querySelector('.currency');
 
 cepInput.addEventListener('input', function() {
     Mask.apply(this, 'cep');
@@ -37,6 +38,10 @@ percentInput.addEventListener('input', function() {
 
 stateInput.addEventListener('input', function() {
     Mask.apply(this, 'state');
+});
+
+currencyInput.addEventListener('input', function() {
+    Mask.apply(this, 'currency');
 });
 
 const Mask = {
@@ -127,6 +132,12 @@ const Mask = {
         
         value = new Intl.NumberFormat('pt-BR', { style: 'percent', minimumFractionDigits: 2 }).format(value/10000);
         
+        return value;
+    },
+    currency(value) {
+        value = value.replace(/\D/g, '');
+
+        value = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value/100);
         return value;
     }
 }
