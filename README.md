@@ -11,3 +11,4 @@ A collection of input masks for:
 - Percent
 - State (Brazilian states)
 - Currency
+- Date
