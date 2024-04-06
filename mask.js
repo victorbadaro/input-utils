@@ -104,5 +104,11 @@ const Mask = {
     value = value.replace(/(\d{2})(\d)/, '$1/$2');
 
     return value;
+  },
+  macAddress(value) {
+    if (value.length > 12)
+      value = value.slice(0, -1);
+
+    return value;
   }
 }

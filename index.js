@@ -8,6 +8,7 @@ const cpf_cnpjInput = document.querySelector('.cpf_cnpj');
 const percentInput = document.querySelector('.percent');
 const currencyInput = document.querySelector('.currency');
 const dateInput = document.querySelector('.date');
+const macAddressInput = document.querySelector('.mac-address');
 
 cepInput.addEventListener('input', function () {
     Mask.apply(this, 'cep');
@@ -47,4 +48,8 @@ currencyInput.addEventListener('input', function () {
 
 dateInput.addEventListener('input', function () {
     Mask.apply(this, 'date');
+});
+
+macAddressInput.addEventListener('input', function () {
+    Mask.apply(this, 'macAddress');
 });
