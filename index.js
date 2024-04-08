@@ -11,45 +11,45 @@ const dateInput = document.querySelector('.date');
 const macAddressInput = document.querySelector('.mac-address');
 
 cepInput.addEventListener('input', function () {
-    Mask.apply(this, 'cep');
+	Mask.apply(this, 'cep');
 });
 
 phoneInput.addEventListener('input', function () {
-    Mask.apply(this, 'phone');
+	Mask.apply(this, 'phone');
 });
 
 cellPhoneInput.addEventListener('input', function () {
-    Mask.apply(this, 'cellPhone');
+	Mask.apply(this, 'cellPhone');
 });
 
 cpfInput.addEventListener('input', function () {
-    Mask.apply(this, 'cpf');
+	Mask.apply(this, 'cpf');
 });
 
 cnpjInput.addEventListener('input', function () {
-    Mask.apply(this, 'cnpj');
+	Mask.apply(this, 'cnpj');
 });
 
 cpf_cnpjInput.addEventListener('input', function () {
-    Mask.apply(this, 'cpfCnpj');
+	Mask.apply(this, 'cpfCnpj');
 });
 
 percentInput.addEventListener('input', function () {
-    Mask.apply(this, 'percent');
+	Mask.apply(this, 'percent');
 });
 
 stateInput.addEventListener('input', function () {
-    Mask.apply(this, 'state');
+	Mask.apply(this, 'state');
 });
 
 currencyInput.addEventListener('input', function () {
-    Mask.apply(this, 'currency');
+	Mask.apply(this, 'currency');
 });
 
 dateInput.addEventListener('input', function () {
-    Mask.apply(this, 'date');
+	Mask.apply(this, 'date');
 });
 
 macAddressInput.addEventListener('input', function () {
-    Mask.apply(this, 'macAddress');
+	Mask.apply(this, 'macAddress');
 });
