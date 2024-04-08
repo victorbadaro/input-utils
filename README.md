@@ -12,3 +12,4 @@ A collection of input masks for:
 - State (Brazilian states)
 - Currency
 - Date
+- MAC Address
